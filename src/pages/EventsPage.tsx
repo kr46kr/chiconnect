@@ -56,16 +56,14 @@ export default function EventsPage() {
             >
               Recommended For You
             </button>
-            {store.isAdmin() && (
-              <button
-                onClick={() => { setTab('all'); setCategory('All'); }}
-                className={`px-5 py-2 text-sm font-medium rounded-lg transition-all ${
-                  tab === 'all' ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                All Events
-              </button>
-            )}
+            <button
+              onClick={() => { setTab('all'); setCategory('All'); }}
+              className={`px-5 py-2 text-sm font-medium rounded-lg transition-all ${
+                tab === 'all' ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              All Events
+            </button>
             <button
               onClick={() => { setTab('my-rsvps'); setCategory('All'); }}
               className={`px-5 py-2 text-sm font-medium rounded-lg transition-all ${
