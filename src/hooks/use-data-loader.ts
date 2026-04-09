@@ -13,14 +13,14 @@ export function useDataLoader(authUser: SupabaseUser | null) {
     }
 
     setLoading(true);
-    store.loadFromSupabase(authUser.id)
+    store.loadFromSupabase(authUser.id, authUser.email)
       .then(() => setLoading(false))
       .catch(err => {
         console.error('Failed to load data:', err);
         setError('Failed to load data');
         setLoading(false);
       });
-  }, [authUser?.id]);
+  }, [authUser?.id, authUser?.email]);
 
   return { loading, error };
 }

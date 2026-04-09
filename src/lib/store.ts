@@ -6,6 +6,7 @@ interface AppState {
   groups: Group[];
   events: Event[];
   currentUserId: string;
+  userEmail: string;
   viewMode: ViewMode;
   loaded: boolean;
 }
@@ -15,9 +16,12 @@ let state: AppState = {
   groups: [],
   events: [],
   currentUserId: '00000000-0000-0000-0000-000000000001',
+  userEmail: '',
   viewMode: 'user',
   loaded: false,
 };
+
+const ADMIN_EMAIL = "test123@gmail.com";
 
 let listeners: Array<() => void> = [];
 
@@ -43,7 +47,7 @@ export const store = {
   getGroupById: (id: string) => state.groups.find(g => g.id === id),
   getEventById: (id: string) => state.events.find(e => e.id === id),
 
-  async loadFromSupabase(authUserId?: string) {
+  async loadFromSupabase(authUserId?: string, userEmail?: string) {
     const data = await db.loadAllData();
     
     // Find profile linked to the authenticated user
@@ -64,6 +68,7 @@ export const store = {
       groups: data.groups,
       events: data.events,
       currentUserId: currentId,
+      userEmail: userEmail || '',
       loaded: true,
     };
     // Ensure currentUserId is valid
@@ -74,8 +79,16 @@ export const store = {
   },
 
   setViewMode(mode: ViewMode) {
+    if (mode === 'admin' && state.userEmail !== ADMIN_EMAIL) {
+      console.warn("Unauthorized: Only authorized admins can switch to Admin view.");
+      return;
+    }
     state = { ...state, viewMode: mode };
     notify();
+  },
+
+  isAdmin() {
+    return state.userEmail === ADMIN_EMAIL;
   },
 
   updateUser(userId: string, updates: Partial<User>) {

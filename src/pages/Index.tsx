@@ -33,9 +33,15 @@ const Index = () => {
         {/* Stats */}
         <motion.div variants={container} initial="hidden" animate="show" className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {[
-            { icon: Users, value: allUsers.length, label: "Total Users" },
-            { icon: TrendingUp, value: allGroups.length, label: "Active Groups" },
-            { icon: Calendar, value: allEvents.length, label: "Upcoming Events" },
+            ...(store.isAdmin() ? [
+              { icon: Users, value: allUsers.length, label: "Total Users" },
+              { icon: TrendingUp, value: allGroups.length, label: "Active Groups" },
+              { icon: Calendar, value: allEvents.length, label: "Upcoming Events" },
+            ] : [
+              { icon: Users, value: currentUser.friendIds.length, label: "My Friends" },
+              { icon: TrendingUp, value: userGroups.length, label: "My Groups" },
+              { icon: Calendar, value: currentUser.rsvpEventIds.length, label: "My RSVPs" },
+            ]),
             { icon: Clock, value: `${currentUser.weeklyHours}h`, label: "Your Weekly Hours" },
           ].map((stat, i) => (
             <motion.div key={i} variants={item} className="stat-card flex items-start gap-3">

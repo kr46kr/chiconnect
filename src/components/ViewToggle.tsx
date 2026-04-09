@@ -8,9 +8,8 @@ const ADMIN_EMAIL = "test123@gmail.com";
 
 export function ViewToggle() {
   const viewMode = useViewMode();
-  const { user } = useAuth();
-
-  if (user?.email !== ADMIN_EMAIL) {
+  
+  if (!store.isAdmin()) {
     return null;
   }
 
