@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect My Tribe | Enter the App</title>
+  <style>
+    :root {
+      --bg: #efe4d2;
+      --panel: rgba(255, 250, 244, 0.84);
+      --panel-strong: rgba(255, 248, 240, 0.96);
+      --ink: #14281f;
+      --muted: #4f675e;
+      --accent: #d95d39;
+      --accent-deep: #a63e21;
+      --green: #2e6a4f;
+      --line: rgba(20, 40, 31, 0.12);
+      --shadow: 0 22px 50px rgba(20, 40, 31, 0.10);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(217, 93, 57, 0.18), transparent 28%),
+        radial-gradient(circle at 100% 100%, rgba(46, 106, 79, 0.16), transparent 26%),
+        linear-gradient(180deg, #f7f0e7 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+    .shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 18px 64px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .brand {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.95rem;
+      margin-left: 14px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(46, 106, 79, 0.10);
+      color: var(--green);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      line-height: 0.93;
+      margin: 0 0 18px;
+      max-width: 12ch;
+    }
+    .lead {
+      margin: 0 0 22px;
+      color: #29443a;
+      font-size: 1.15rem;
+      line-height: 1.65;
+      max-width: 42rem;
+    }
+    .chips, .stats, .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip, .stat {
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(20, 40, 31, 0.06);
+      font-size: 0.94rem;
+    }
+    .subtle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      padding: 15px 18px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      min-width: 170px;
+    }
+    .button-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .button-primary:hover { background: var(--accent-deep); }
+    .button-secondary {
+      background: rgba(20, 40, 31, 0.06);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .step {
+      border-radius: 18px;
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      padding: 15px 16px;
+    }
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+    .section {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+    .quote {
+      font-style: italic;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: #234033;
+      margin: 0;
+    }
+    .footer-cta {
+      margin-top: 22px;
+      text-align: center;
+      padding: 24px;
+    }
+    .footer-cta h2 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+    .tiny {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .field-full {
+      grid-column: 1 / -1;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 15px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.95);
+      color: var(--ink);
+      font-family: inherit;
+    }
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+    .success-box {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(46, 106, 79, 0.10);
+      border: 1px solid rgba(46, 106, 79, 0.18);
+      color: var(--green);
+      line-height: 1.5;
+    }
+    code {
+      background: rgba(20, 40, 31, 0.06);
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 920px) {
+      .hero, .section, .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="nav">
+      <div class="brand">ChiConnect</div>
+      <div>
+        <a href="#enter">Enter app</a>
+        <a href="#reminders">Email reminders</a>
+        <a href="#feedback">Feedback</a>
+        <a href="index.html">Main site</a>
+        <a href="content-hub.html">Content hub</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="panel">
+        <div class="eyebrow">Live now • Chicago community app</div>
+        <h1>Find your people in Chicago.</h1>
+        <p class="lead">ChiConnect helps people discover local events, meet others with shared interests, and build real in-person community around them. This page now works as both a front door into the app and a place to subscribe to event reminder emails.</p>
+        <div class="chips">
+          <div class="chip">Chicago-first</div>
+          <div class="chip">Interest-based recommendations</div>
+          <div class="chip">Built for in-person connection</div>
+        </div>
+        <div class="actions" style="margin-top:22px;">
+          <a class="button button-primary" href="https://connect-my-tribe-95.lovable.app/" target="_blank" rel="noreferrer">Sign In to the App</a>
+          <a class="button button-secondary" href="https://connect-my-tribe-95.lovable.app/" target="_blank" rel="noreferrer">Create an Account</a>
+          <a class="button button-secondary" data-feedback-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSfnAnUez2CblGYA02xnMD1-ymSNJDvA06O38OThttE8-kMdPw/viewform?usp=publish-editor" target="_blank" rel="noreferrer">Share Anonymous Feedback</a>
+        </div>
+        <p class="subtle">Because I do not have your app's exact auth route paths in this workspace, both buttons point to the live app root: <code>https://connect-my-tribe-95.lovable.app/</code>. If your sign-in and sign-up live on separate URLs, we can swap those in next.</p>
+      </div>
+
+      <div class="panel" id="enter">
+        <h2 style="margin-top:0; font-size:2rem;">Enter ChiConnect</h2>
+        <p class="subtle">Use this landing page as a simple entry point for real users right now.</p>
+        <div class="steps">
+          <div class="step">
+            <strong>1. New here?</strong>
+            Create your account with your email, password, name, location, age, interests, and time commitment.
+          </div>
+          <div class="step">
+            <strong>2. Already have an account?</strong>
+            Sign in and return to your profile, groups, and events.
+          </div>
+          <div class="step">
+            <strong>3. Want reminders?</strong>
+            Join the email reminder list below to hear about upcoming events that match your interests.
+          </div>
+        </div>
+        <div class="actions" style="margin-top:18px;">
+          <a class="button button-primary" href="https://connect-my-tribe-95.lovable.app/" target="_blank" rel="noreferrer">Open Live App</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="reminders" style="margin-top:22px;">
+      <div class="eyebrow">Event reminder list</div>
+      <h2 style="margin:0 0 10px; font-size:2.1rem;">Get reminder emails about events you care about.</h2>
+      <p class="subtle">This form collects a user's email, area, interests, and reminder cadence. It is already set up to store submissions locally for demo purposes, and it is also ready to post to a real email-list endpoint when you add one.</p>
+
+      <form id="reminder-form">
+        <div class="form-grid">
+          <div>
+            <label for="reminder-name">First name</label>
+            <input id="reminder-name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div>
+            <label for="reminder-email">Email</label>
+            <input id="reminder-email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label for="reminder-area">Neighborhood or area</label>
+            <input id="reminder-area" name="area" type="text" placeholder="Logan Square, Hyde Park, Loop...">
+          </div>
+          <div>
+            <label for="reminder-frequency">Reminder frequency</label>
+            <select id="reminder-frequency" name="frequency">
+              <option value="weekly">Weekly</option>
+              <option value="twice-weekly">Twice weekly</option>
+              <option value="weekend-only">Weekend only</option>
+            </select>
+          </div>
+          <div class="field-full">
+            <label for="reminder-interests">What kinds of events do you want reminders about?</label>
+            <textarea id="reminder-interests" name="interests" placeholder="Networking, volunteering, music, food events, fitness, neighborhood meetups..."></textarea>
+          </div>
+        </div>
+        <div class="actions" style="margin-top:18px;">
+          <button class="button button-primary" type="submit" style="border:0; cursor:pointer;">Join the Reminder List</button>
+        </div>
+      </form>
+
+      <div class="success-box" id="reminder-success"></div>
+      <p class="tiny">Developer note: add a real endpoint to <code>EVENT_REMINDER_WEBHOOK</code> in this file to send form data into Mailchimp, Brevo, Supabase, or another reminder system.</p>
+    </section>
+
+    <section class="panel" id="feedback" style="margin-top:22px;">
+      <div class="eyebrow">Anonymous product feedback</div>
+      <h2 style="margin:0 0 10px; font-size:2.1rem;">Tell us what worked well and what did not.</h2>
+      <p class="subtle">This feedback form is meant to show up in three places: on the website, on the teaser campaign page, and right after login inside the app. It can stay anonymous, and it should help us capture both wins and friction while the experience is still fresh.</p>
+      <div class="steps">
+        <div class="step">
+          <strong>What worked well?</strong>
+          Ask users what felt useful, clear, or valuable so we know what to protect as the product grows.
+        </div>
+        <div class="step">
+          <strong>What did not work?</strong>
+          Ask what felt confusing, broken, slow, or missing so the team can spot the highest-friction issues quickly.
+        </div>
+        <div class="step">
+          <strong>What should we improve next?</strong>
+          Capture one recommendation in the user's own words so the feedback loop turns into product priorities instead of just raw comments.
+        </div>
+      </div>
+      <div class="actions" style="margin-top:18px;">
+        <a class="button button-primary" data-feedback-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSfnAnUez2CblGYA02xnMD1-ymSNJDvA06O38OThttE8-kMdPw/viewform?usp=publish-editor" target="_blank" rel="noreferrer">Open Anonymous Feedback Form</a>
+      </div>
+      <p class="tiny">Developer note: replace <code>GOOGLE_FEEDBACK_FORM_URL</code> with the real Google Form link once the form is created. The suggested question set lives in <code>../feedback-loop/google-form-template.md</code>.</p>
+    </section>
+
+    <section class="section" id="why">
+      <div class="panel">
+        <h2>Why It Exists</h2>
+        <p class="subtle">Big cities make discovery easy and belonging hard. ChiConnect helps users find communities that fit, not just activities to scroll past.</p>
+      </div>
+      <div class="panel">
+        <h2>Why It Feels Different</h2>
+        <p class="subtle">Meetup can feel clunky, Eventbrite is transactional, and Facebook is noisy. ChiConnect is built around intentional, repeat, in-person connection.</p>
+      </div>
+      <div class="panel">
+        <h2>Who It Is For</h2>
+        <p class="subtle">People in Chicago who want to make connections, discover events that fit their interests, and build community in a more personal way.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <h2>What users already liked</h2>
+        <p class="quote">“She was able to join a group recommended to her based on the interests she listed when signing in.”</p>
+      </div>
+      <div class="panel">
+        <h2>Best use for this page</h2>
+        <p class="subtle">Share it as a clean front door in bios, slides, and teaser posts, then route users into the live app and offer them the option to join the reminder list.</p>
+      </div>
+      <div class="panel">
+        <h2>Next production upgrade</h2>
+        <p class="subtle">Replace the shared root app URL with exact sign-in and sign-up routes, then connect the reminder form to your actual email service so submissions go straight into a live campaign list.</p>
+      </div>
+    </section>
+
+    <section class="panel footer-cta">
+      <h2>Your launch page can now grow a reminder list too.</h2>
+      <p class="subtle">This gives you a place to capture interest even from users who are not ready to jump into the app immediately.</p>
+      <p><a href="content-hub.html" style="color: var(--accent); font-weight: 700; text-decoration: none;">Open the teaser content hub</a></p>
+    </section>
+  </div>
+
+  <script>
+    const GOOGLE_FEEDBACK_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfnAnUez2CblGYA02xnMD1-ymSNJDvA06O38OThttE8-kMdPw/viewform?usp=publish-editor";
+    const EVENT_REMINDER_WEBHOOK = "";
+    const REMINDER_STORAGE_KEY = "connect-my-tribe-event-reminders";
+    const feedbackLinks = document.querySelectorAll("[data-feedback-form-link]");
+
+    const reminderForm = document.getElementById("reminder-form");
+    const reminderSuccess = document.getElementById("reminder-success");
+
+    feedbackLinks.forEach((link) => {
+      link.href = GOOGLE_FEEDBACK_FORM_URL;
+    });
+
+    reminderForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const payload = Object.fromEntries(new FormData(reminderForm).entries());
+      payload.createdAt = new Date().toISOString();
+
+      const current = JSON.parse(localStorage.getItem(REMINDER_STORAGE_KEY) || "[]");
+      current.push(payload);
+      localStorage.setItem(REMINDER_STORAGE_KEY, JSON.stringify(current));
+
+      let sentToWebhook = false;
+      if (EVENT_REMINDER_WEBHOOK) {
+        try {
+          const response = await fetch(EVENT_REMINDER_WEBHOOK, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          sentToWebhook = response.ok;
+        } catch (error) {
+          sentToWebhook = false;
+        }
+      }
+
+      reminderForm.reset();
+      reminderSuccess.style.display = "block";
+      reminderSuccess.textContent = sentToWebhook
+        ? "You are on the reminder list. Your info was saved and sent to the connected email endpoint."
+        : "You are on the reminder list. For now, this demo saves submissions in browser storage. Add a real webhook to EVENT_REMINDER_WEBHOOK to push signups into your live email list.";
+    });
+  </script>
+</body>
+</html>
