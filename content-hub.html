@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect My Tribe | Teaser Content Hub</title>
+  <style>
+    :root {
+      --bg: #fff8f0;
+      --ink: #1b2d23;
+      --muted: #5d746a;
+      --accent: #d95d39;
+      --green: #2f6c52;
+      --card: #ffffff;
+      --line: rgba(27, 45, 35, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fef7ef 0%, #f3eadf 100%);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+    .top a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      margin: 0 0 12px;
+    }
+    .lead {
+      max-width: 46rem;
+      color: #31473d;
+      line-height: 1.7;
+      font-size: 1.06rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 16px 34px rgba(27,45,35,0.06);
+    }
+    .meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .pill {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(47, 108, 82, 0.10);
+      color: var(--green);
+      font-size: 0.84rem;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+    }
+    p {
+      margin: 0 0 12px;
+      line-height: 1.65;
+      color: #33493f;
+    }
+    .label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 5px;
+    }
+    .copy {
+      background: #faf3ea;
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .cta-box {
+      margin-top: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 16px 34px rgba(27,45,35,0.06);
+    }
+    .cta-box a {
+      color: white;
+      background: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 14px 18px;
+      border-radius: 16px;
+      margin-top: 8px;
+    }
+    @media (max-width: 840px) {
+      .grid { grid-template-columns: 1fr; }
+      .top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div style="text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-size: .9rem;">ChiConnect</div>
+        <h1>Teaser Content Hub</h1>
+        <p class="lead">Five launch posts designed to build awareness, explain the product, and convert Chicago users into waitlist signups before summer launch.</p>
+      </div>
+      <a href="index.html">Back to landing page</a>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="meta"><span class="pill">Post 1</span><span class="pill">Problem</span><span class="pill">Instagram / LinkedIn / X</span></div>
+        <h2>Chicago is full. Connection still feels hard.</h2>
+        <div class="label">Core copy</div>
+        <div class="copy"><p>Chicago is packed with events, neighborhoods, and people. That does not mean finding the right community is easy. We are building Connect My Tribe to make local connection feel more personal.</p></div>
+        <div class="label">CTA</div>
+        <p>Join the waitlist.</p>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="pill">Post 2</span><span class="pill">Product intro</span><span class="pill">Instagram / LinkedIn / X</span></div>
+        <h2>Meet Connect My Tribe</h2>
+        <div class="label">Core copy</div>
+        <div class="copy"><p>Connect My Tribe helps people in Chicago discover events, find communities around shared interests, and build real in-person connection around them.</p></div>
+        <div class="label">CTA</div>
+        <p>Be first in line for launch updates.</p>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="pill">Post 3</span><span class="pill">Differentiation</span><span class="pill">Instagram / LinkedIn / X</span></div>
+        <h2>Not another event listing</h2>
+        <div class="label">Core copy</div>
+        <div class="copy"><p>Event apps help you find things to do. We want to help you find people, repeat experiences, and community worth coming back to.</p></div>
+        <div class="label">CTA</div>
+        <p>Join the waitlist if you want a more intentional way to connect in Chicago.</p>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="pill">Post 4</span><span class="pill">Build in public</span><span class="pill">LinkedIn / X</span></div>
+        <h2>Built with real user feedback</h2>
+        <div class="label">Core copy</div>
+        <div class="copy"><p>We have already tested Connect My Tribe with real users and are actively improving the experience before launch. Now we are turning that feedback into a stronger Chicago community product.</p></div>
+        <div class="label">CTA</div>
+        <p>Follow the build, join the waitlist, and share anonymous product feedback.</p>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="pill">Post 5</span><span class="pill">Urgency</span><span class="pill">Instagram / LinkedIn / X</span></div>
+        <h2>Summer launch is coming</h2>
+        <div class="label">Core copy</div>
+        <div class="copy"><p>Connect My Tribe is launching this summer. If you want early access to a better way to discover Chicago events and build real connections, now is the time to get on the list.</p></div>
+        <div class="label">CTA</div>
+        <p>Sign up now.</p>
+      </article>
+
+      <article class="card">
+        <div class="meta"><span class="pill">Posting rhythm</span><span class="pill">2 weeks</span></div>
+        <h2>Suggested schedule</h2>
+        <p><strong>Week 1:</strong> Problem post, product intro, differentiation</p>
+        <p><strong>Week 2:</strong> Build-in-public update, launch urgency push</p>
+        <div class="label">Goal</div>
+        <p>Drive viewers from social posts to the waitlist page and build launch anticipation.</p>
+      </article>
+    </div>
+
+    <section class="cta-box">
+      <div style="text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-size: .9rem; margin-bottom: 8px;">Feedback loop</div>
+      <h2 style="margin: 0 0 10px;">Help us improve Connect My Tribe</h2>
+      <p>We are collecting anonymous feedback about what worked well, what did not, and what we should improve next. Use the same form across teaser traffic, website visitors, and logged-in users so the feedback can roll into one daily recommendation report.</p>
+      <a data-feedback-form-link href="https://docs.google.com/forms/d/e/1FAIpQLSfnAnUez2CblGYA02xnMD1-ymSNJDvA06O38OThttE8-kMdPw/viewform?usp=publish-editor" target="_blank" rel="noreferrer">Open anonymous feedback form</a>
+    </section>
+  </div>
+
+  <script>
+    const GOOGLE_FEEDBACK_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfnAnUez2CblGYA02xnMD1-ymSNJDvA06O38OThttE8-kMdPw/viewform?usp=publish-editor";
+
+    document.querySelectorAll("[data-feedback-form-link]").forEach((link) => {
+      link.href = GOOGLE_FEEDBACK_FORM_URL;
+    });
+  </script>
+</body>
+</html>
